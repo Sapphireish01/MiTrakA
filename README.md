@@ -67,6 +67,6 @@ MiTrakA is constantly evolving. Here’s what we’re looking at next:
 
 ## Deployment
 
-- Hosted on vercel at https://mitrak-a.vercel.app/
+- Hosted on vercel at https://mi-trak-a.vercel.app/
 
 *“Control your money, or it will control you.”* — **MiTrakA Team**
