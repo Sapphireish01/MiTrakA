@@ -4,69 +4,76 @@ Welcome to **MiTrakA**, a sleek, privacy-focused personal finance companion. Des
 
 ---
 
-## Why MiTrakA?
+## The Vision: Why MiTrakA?
 
 Most finance trackers are either too simple or overly complex. MiTrakA hits the sweet spot:
-- **Private by Design**: Your data stays on the user's device. No servers, no tracking.
+- **Private by Design**: Your data stays on your device. No servers, no tracking.
 - **Instant Insights**: Beautifully rendered charts show your income vs. spending trends at a glance.
 - **Smart Budgets**: Stay on track with visual progress bars and instant over-budget alerts.
 - **Seamless Flow**: Adding a transaction takes seconds, not minutes.
 
 ---
 
+## The Build: Choices & Logic
+
+### Core Stack
+- **React 18**: Chosen for its reactive state management, ensuring the UI stays in sync with local data instantly.
+- **Recharts**: Integrated for its robust, responsive SVG charting capabilities, allowing users to visualize financial health without performance lag.
+- **Native CSS Variables**: Used to implement a flicker-free "Night Mode" and "Glassmorphism" UI that feels premium and modern.
+
+### Data & Privacy Choice
+We opted for **Browser Local Storage** instead of a traditional database. 
+- **Reason**: Security and Privacy. By keeping data local, we eliminate the need for server-side security audits and give the user 100% ownership of their financial history.
+- **Architecture**: A custom `useLocalStorage` hook acts as a lightweight ORM, handling JSON serialization and persistence.
+
+---
+
+## Challenges Faced
+
+1.  **Mobile Component Density**: Fitting a full financial dashboard (charts, lists, and forms) onto a mobile screen required significant iteration on the `Sidebar` and `SummaryCards` components to ensure accessibility without clutter.
+2.  **Session Security**: Implementing a reliable 7-minute inactivity logout using only client-side state required careful management of global event listeners (mouse, keyboard, touch) to avoid memory leaks.
+3.  **Data Consistency**: Ensuring the `SpendingChart` updated in real-time as users added/deleted transactions across different components was solved using a centralized `useTransactions` hook.
+
+---
+
+## Development Metrics
+
+- **Time Spent**: ~28 Hours (approx. 7 days of active development).
+- **Phases**: 
+    - 20% Research & Wireframing
+    - 50% Core Implementation (Hooks & Logic)
+    - 30% UI Polish & Mobile Optimization
+
+---
+
+## The Roadmap (Future Improvements)
+
+While MiTrakA is powerful, there's always room to grow:
+- [ ] **Historical Deep-Dives**: Implementation of a month/year picker for longitudinal analysis.
+- [ ] **Category Mastery**: Allowing users to create custom categories with unique icons.
+- [ ] **Data Portability**: Adding CSV/JSON export functionality so users can back up their local data.
+- [ ] **Recurring Logic**: Support for automated monthly subscriptions and bills.
+
+---
+
 ## Experience it Locally
 
-Ready to take control of your finances? Get started in seconds:
-
 ```bash
-# 1. Getting the dependencies
+# 1. Install dependencies
 npm install
 
-# 2. Running the app
-npm start
+# 2. Run the development server
+npm run dev
 ```
-The app will be running locally at [http://localhost:3000](http://localhost:3000).
 
----
-
-## The Tech Under the Hood
-
-MiTrakA is built with modern web standards to ensure it's fast and reliable:
-- **React 18** — Powering a reactive and snappy user interface.
-- **Recharts** — Dynamic, interactive data visualisations.
-- **Date-fns** — Precise date manipulation and range logic.
-- **Local Storage** — Persistent data without the need for a backend.
-- **CSS Variables** — Native, flicker-free dark/light theme switching.
-
----
-
-## Security & Privacy
-
-We take your data seriously (even if it never leaves your browser):
-- **Client-Side Auth**: Secure login via authorised credentials.
-- **Inactivity Guard**: The app automatically logs you out after 7 minutes of inactivity to keep your eyes-only data safe.
-- **Optimised Storage**: Efficient data handling ensures your browser stays fast as your transaction list grows.
-
-## Login Credentials
-
-- **Username**: "admin@mitraka.com"
-- **Password**: "MiTrak@8"
-
----
-
-## The Roadmap
-
-MiTrakA is constantly evolving. Here’s what we’re looking at next:
-- [ ] **Historical Deep-Dives**: Month-picker for viewing past trends.
-- [ ] **Category Mastery**: Custom category creation and management.
-- [ ] **Visual Breakdown**: Donut charts for category-specific spending.
-- [ ] **Export & Backup**: CSV export for external analysis.
-- [ ] **Recurring Logic**: Support for subscriptions and repetitive bills.
+### Login Credentials
+- **Username**: `admin@mitraka.com`
+- **Password**: `MiTrak@8`
 
 ---
 
 ## Deployment
-
-- Hosted on vercel at https://mitrak-a.vercel.app/
+Hosted live on Vercel: [mitraka.vercel.app](https://mitraka.vercel.app/)
 
 *“Control your money, or it will control you.”* — **MiTrakA Team**
+
