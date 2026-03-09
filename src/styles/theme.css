@@ -1,0 +1,175 @@
+/* src/styles/theme.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ── DARK THEME (default) ── */
+:root,
+[data-theme="dark"] {
+  --bg: #05152a;
+  /* Deeper bg */
+  --surface: #0A4174;
+  /* PRIMARY */
+  --surface2: #115494;
+  /* Lighter surface */
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --text2: #bbdefb;
+  --muted: #8ab4f8;
+  /* Soft blue */
+
+  --green: #6ee7b7;
+  /* Minty green */
+  --green-dim: rgba(110, 231, 183, 0.15);
+  --red: #fda4af;
+  /* Soft red/pink */
+  --red-dim: rgba(253, 164, 175, 0.15);
+  --amber: #ffd166;
+  --amber-dim: rgba(255, 209, 102, 0.15);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96, 165, 250, 0.15);
+  --purple: #c084fc;
+  --pink: #f9a8d4;
+
+  --accent: #6ee7b7;
+  --accent-text: #05152a;
+
+  --secondary: #f9c9b5;
+  /* Peachy accent */
+
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.3);
+
+  /* ── MASTER CARD (dark) ── */
+  --mc-bg: #0A4174;
+  --mc-sub-bg: rgba(255, 255, 255, 0.12);
+  --mc-text: #ffffff;
+  --mc-label: rgba(255, 255, 255, 0.65);
+  --mc-value: var(--green);
+  --mc-currency: rgba(110, 231, 183, 0.65);
+  --mc-icon: var(--green);
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface2: #e2e8f0;
+  --border: rgba(0, 0, 0, 0.08);
+  --text: #0f172a;
+  --text2: #334155;
+  --muted: #64748b;
+
+  --green: #059669;
+  --green-dim: rgba(5, 150, 105, 0.10);
+  --red: #e11d48;
+  --red-dim: rgba(225, 29, 72, 0.10);
+  --amber: #d97706;
+  --amber-dim: rgba(217, 119, 6, 0.10);
+  --blue: #2563eb;
+  --blue-dim: rgba(37, 99, 235, 0.10);
+  --purple: #7c3aed;
+  --pink: #db2777;
+
+  --accent: #0A4174;
+  --accent-text: #ffffff;
+
+  --secondary: #f4a261;
+  /* Peachy accent */
+
+  --shadow: 0 4px 24px rgba(10, 65, 116, 0.08);
+  --shadow-lg: 0 16px 48px rgba(10, 65, 116, 0.15);
+
+  /* ── MASTER CARD (light) ── */
+  --mc-bg: #0A4174;
+  --mc-sub-bg: rgba(255, 255, 255, 0.18);
+  --mc-text: #ffffff;
+  --mc-label: rgba(255, 255, 255, 0.7);
+  --mc-value: #a8f0d4;
+  /* soft mint on blue */
+  --mc-currency: rgba(168, 240, 212, 0.65);
+  --mc-icon: #a8f0d4;
+}
+
+/* ── RESET & BASE ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 99px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.anim-fade-up {
+  animation: fadeUp 0.35s ease both;
+}
+
+.anim-fade-in {
+  animation: fadeIn 0.25s ease both;
+}
+
+.anim-slide-in {
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
